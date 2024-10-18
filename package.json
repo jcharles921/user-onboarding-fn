@@ -10,7 +10,11 @@
   },
   "dependencies": {
     "@apollo/client": "^3.11.8",
+    "@apollo/experimental-nextjs-app-support": "^0.11.3",
     "@emotion/cache": "^11.13.1",
+    "@emotion/styled": "^11.13.0",
+    "@mui/icons-material": "^6.1.4",
+    "@mui/material": "^6.1.4",
     "@mui/material-nextjs": "^6.1.4",
     "@reduxjs/toolkit": "^2.3.0",
     "apollo-server-micro": "^3.13.0",
