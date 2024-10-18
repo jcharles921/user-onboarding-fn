@@ -1,6 +1,6 @@
 import React from "react";
 import { FC, HTMLAttributes, PropsWithChildren } from "react";
-import styles from "../../styles/home.module.css";
+import styles from "../styles/home.module.css";
 
 interface TextProps
   extends HTMLAttributes<HTMLHeadingElement>,

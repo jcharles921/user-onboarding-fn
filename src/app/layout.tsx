@@ -18,11 +18,11 @@ export default function RootLayout({
 }>) {
   return (
     <ApolloWrapper>
-      <AppRouterCacheProvider>
-        <html lang="en">
-          <body>{children}</body>
-        </html>
-      </AppRouterCacheProvider>
+      <html lang="en">
+        <body>
+          <AppRouterCacheProvider>{children}</AppRouterCacheProvider>
+        </body>
+      </html>
     </ApolloWrapper>
   );
 }
