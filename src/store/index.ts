@@ -3,6 +3,7 @@ import responsibilities from "./reducer/responsibilities";
 import product from "./reducer/product";
 import productsTags from "./reducer/productsTags";
 import steps from "./reducer/steps";
+import onboardingData from "./reducer/onboardingData";
 
 const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ const store = configureStore({
     product,
     productsTags,
     steps,
+    onboardingData,
   },
 });
 

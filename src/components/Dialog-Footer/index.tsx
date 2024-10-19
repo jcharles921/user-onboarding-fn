@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState, AppDispatch } from "@/store/types";
 import { nextStep, prevStep } from "@/store/reducer/steps";
+import { setUpUserData } from "@/store/reducer/onboardingData";
 import { NormalText, MediumText } from "../Text";
 import { MainButton } from "../Button";
 import style from "../../styles/navigation.module.css";
@@ -25,6 +26,10 @@ const DialogFooter = () => {
 
   const handlePrevious = () => {
     if (pages > StepsEnum.Start) {
+      // If it's Step 5, reset productInterest
+      if (pages === StepsEnum.Step5) {
+        dispatch(setUpUserData({ productInterest: [] }));
+      }
       dispatch(prevStep(1));
     }
   };
@@ -36,17 +41,23 @@ const DialogFooter = () => {
         <MediumText
           onClick={handlePrevious}
           text="Back"
-          className="text-purple ml-8"
+          className="text-purple ml-8 cursor-pointer"
         />
         <div className="flex gap-4 items-center justify-between">
-          <MediumText
-            text="Skip"
-            onClick={handleSkip}
-            className="text-purple mr-3"
-          />
-          <MainButton variant="contained">
-            <NormalText text="Next" onClick={handleNext} />
-          </MainButton>
+          {/* Conditionally render the "Skip" button, hide on Step 5 */}
+          {(pages !== StepsEnum.Step4 && pages !== StepsEnum.Step5) && (
+            <MediumText
+              text="Skip"
+              onClick={handleSkip}
+              className="text-purple mr-3 cursor-pointer"
+            />
+          )}
+          {/* Conditionally render the "Next" button for steps 5, 6, and 7 */}
+          {(pages === StepsEnum.Step5 || pages === StepsEnum.Step6 || pages === StepsEnum.Step7) && (
+            <MainButton variant="contained">
+              <NormalText text="Next" onClick={handleNext} />
+            </MainButton>
+          )}
         </div>
       </div>
     </div>

@@ -17,6 +17,9 @@ const config: Config = {
         darkBlue: "#141B29",
         gray: "#A6A6A6",
       },
+      fontFamily: {
+        Inter: ["var(--font-inter)"],
+      },
     },
   },
   plugins: [],

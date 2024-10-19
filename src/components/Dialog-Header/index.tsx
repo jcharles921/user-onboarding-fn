@@ -18,10 +18,10 @@ const DialogHeader = () => {
   }, [pages]);
 
   const getLineColor = (index: number) => {
-    if (index === animatedPages) return "#8D57FA"; // purple for current page
-    if (index < animatedPages) return "#6B44C9"; // deeper purple for previous lines
-    if (index === animatedPages + 1) return "#A9A9A9"; // slightly darker gray for next
-    return "#D3D3D3"; // light gray for lines ahead
+    if (index === animatedPages) return "#D0BAFD"; 
+    if (index < animatedPages) return "#6B44C9"; 
+    if (index === animatedPages + 1) return "#A9A9A9"; 
+    return "#ECECF1"; 
   };
 
   return (

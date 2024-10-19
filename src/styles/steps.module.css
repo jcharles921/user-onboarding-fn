@@ -1,0 +1,41 @@
+.rTitle {
+  font-size: clamp(
+    1.1875rem,
+    1.165492957746479rem + 0.09389671361502347vw,
+    1.25rem
+  );
+}
+/* From 16 px to 15 px */
+.rNormal {
+  font-size: clamp(
+    0.9375rem,
+    0.9154929577464789rem + 0.09389671361502347vw,
+    1rem
+  );
+}
+/* From 14 px to 13 px */
+.rMedium {
+  font-size: clamp(
+    0.8125rem,
+    0.7904929577464789rem + 0.09389671361502347vw,
+    0.875rem
+  );
+}
+/* From 12px to 11px */
+.rSmall {
+  font-size: clamp(
+    0.6875rem,
+    0.6654929577464789rem + 0.09389671361502347vw,
+    0.75rem
+  );
+}
+.gridContainer {
+  @apply grid grid-cols-2 gap-4 justify-center mt-5;
+}
+
+.gridItem {
+  @apply w-[244px] h-[51px] flex items-center justify-center rounded-lg  border border-[#E3E3E7] cursor-pointer;
+}
+.selectedChip{
+  @apply bg-[#F5F5FA] text-[#1F1F33];
+}
