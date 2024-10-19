@@ -22,7 +22,7 @@ const Navigation = () => {
               marginRight: "6px",
             }}
           />
-          <MediumText text="Home" className=" font-medium mr-5" />
+          <MediumText text="Home" className={`${style.rMedium} font-medium mr-5`} />
         </div>
         <div className="text-gray hover:text-white flex cursor-pointer items-center">
           <GroupsOutlinedIcon
@@ -33,7 +33,7 @@ const Navigation = () => {
               marginRight: "6px",
             }}
           />
-          <MediumText text="Community" className=" font-medium mr-5" />
+          <MediumText text="Community" className={`${style.rMedium}  font-medium mr-5`} />
         </div>
         <div className=" flex items-center gap-2">
           <MainButton width={80} variant="outlined" color="#A6A6A6">

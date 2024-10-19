@@ -1,7 +1,7 @@
 // store/apis.ts
 import { createAction, createAsyncThunk } from '@reduxjs/toolkit';
 import { GET_RESPONSIBILITIES, GET_PRODUCT_TAG, GET_PRODUCTS } from '../graphql/queries';
-import apolloClient from '../lib/apolloclient';
+import { apolloClient } from '@/app/ApolloWrapper';
 
 
 class Api {

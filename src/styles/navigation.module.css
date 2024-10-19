@@ -1,3 +1,13 @@
 .navigationBox {
   @apply w-full flex items-center justify-between absolute top-0 h-16 px-[6.75rem] bg-darkBlue text-white;
 }
+.rMedium {
+  font-size: clamp(
+    0.8125rem,
+    0.7904929577464789rem + 0.09389671361502347vw,
+    0.875rem
+  );
+}
+.dialogheader{
+  @apply w-full flex items-center
+}

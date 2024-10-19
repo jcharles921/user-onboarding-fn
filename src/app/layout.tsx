@@ -1,9 +1,8 @@
 import React from "react";
-import { ApolloProvider } from "@apollo/client";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
-import { ApolloWrapper } from "./ApolloWrapper";
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import "./globals.css";
+import ClientProviders from "@/lib/ClientProvider";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -17,12 +16,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ApolloWrapper>
-      <html lang="en">
-        <body>
+    <html lang="en">
+      <body>
+        <ClientProviders>
           <AppRouterCacheProvider>{children}</AppRouterCacheProvider>
-        </body>
-      </html>
-    </ApolloWrapper>
+        </ClientProviders>
+      </body>
+    </html>
   );
 }
