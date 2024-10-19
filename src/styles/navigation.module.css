@@ -8,6 +8,18 @@
     0.875rem
   );
 }
-.dialogheader{
-  @apply w-full flex items-center
+.dialogheader {
+  @apply w-full flex items-center;
+}
+.hearderBox {
+  @apply flex flex-col items-start h-16 relative;
+}
+.lineStep {
+  @apply h-[4px] flex-1 mx-0.5 bg-[#A6A6A6] rounded overflow-hidden;
+}
+.footerLine {
+  @apply w-full  absolute top-0 border-gray border-[0.5px];
+}
+.footerBox {
+  @apply flex items-center justify-between h-[4.25em] w-full absolute bottom-0;
 }

@@ -1,39 +1,52 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import TrendingUpOutlinedIcon from "@mui/icons-material/TrendingUpOutlined";
 import { RootState } from "@/store/types";
+import style from "../../styles/navigation.module.css";
+import { StepsEnum } from "@/constants";
 
 const DialogHeader = () => {
   const { pages } = useSelector((state: RootState) => state.steps);
-  const [animatedPages, setAnimatedPages] = useState(0);
+  const [animatedPages, setAnimatedPages] = useState(StepsEnum.Start);
 
   useEffect(() => {
-    setAnimatedPages(0);
+    setAnimatedPages(StepsEnum.Start);
     const timer = setTimeout(() => {
       setAnimatedPages(pages);
     }, 50);
     return () => clearTimeout(timer);
   }, [pages]);
 
+  const getLineColor = (index: number) => {
+    if (index === animatedPages) return "#8D57FA"; // purple for current page
+    if (index < animatedPages) return "#6B44C9"; // deeper purple for previous lines
+    if (index === animatedPages + 1) return "#A9A9A9"; // slightly darker gray for next
+    return "#D3D3D3"; // light gray for lines ahead
+  };
+
   return (
-    <div className="flex flex-col items-start p-4 bg-gray-100">
+    <div className={style.hearderBox}>
       <div className="flex items-center mb-4">
-        <TrendingUpOutlinedIcon className="mr-2" />
-        <span className="text-lg font-semibold">Page {pages}</span>
+        <TrendingUpOutlinedIcon className="my-4 ml-8 text-purple" />
       </div>
-      <div className="flex w-full">
-        {[...Array(8)].map((_, index) => (
-          <div
-            key={index}
-            className="h-2 flex-1 mx-0.5 bg-gray-300 rounded overflow-hidden"
-          >
-            <div
-              className="h-full bg-purple-800 transition-all duration-500 ease-out"
-              style={{ width: index <= animatedPages ? "100%" : "0%" }}
-            />
-          </div>
-        ))}
-      </div>
+      {pages === StepsEnum.Start && (
+        <hr className="w-full border-[0.5px] border-[#E5E5E9] absolute bottom-0 " />
+      )}
+      {pages !== StepsEnum.Start && (
+        <div className="flex w-full">
+          {[...Array(8)].map((_, index) => (
+            <div key={index} className={style.lineStep}>
+              <div
+                className="h-full transition-all duration-500 ease-out"
+                style={{
+                  width: index <= animatedPages ? "100%" : "0%",
+                  backgroundColor: getLineColor(index),
+                }}
+              />
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
