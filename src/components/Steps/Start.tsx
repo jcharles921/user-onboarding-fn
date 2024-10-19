@@ -3,7 +3,7 @@ import style from "../../styles/steps.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState, AppDispatch } from "@/store/types";
 import { MainButton } from "../Button";
-import { BigText, NormalText, MediumText, SmallText } from "../Text";
+import { BigText, NormalText, SmallText } from "../Text";
 import { StepsEnum } from "@/constants";
 import { nextStep } from "@/store/reducer/steps";
 
@@ -29,19 +29,22 @@ const Start = () => {
       </div>
       <NormalText
         text="We need a few details to personalize your experience. "
-        className="mt-5 text-center"
+        className="my-8 text-center"
       />
       <MainButton
         width={420}
         variant="contained"
-        className="m2-8"
-        onClick={() => {
-          nextStep(1);
-        }}
+        className="mt-6"
+        onClick={handleNext}
       >
         <NormalText text="Let’s do it" className="font-medium" />
       </MainButton>
-      <div></div>
+      <div className="flex gap-1 mt-4">
+        <SmallText
+          text="This will only take a minute."
+          className={`text-[#686868] ${style.rSmall}`}
+        />
+      </div>
     </div>
   );
 };
