@@ -8,7 +8,7 @@ export const CustomDialog = styled((props: DialogProps) => (
     borderRadius: 10,
     width: "100%",
     maxWidth: 580,
-    minHeight: 400,
+    height: "100%",
     fontFamily: "Rubik,sans-serif",
     backgroundColor: "#F9F9F9",
     posittion: "relative",
